@@ -9,15 +9,18 @@ NOTA: NO se conoce la altura, solamente los tres lados (Investigar por AI)
 import math
 import os
 
-#2. FUNCIONES Y PROCEDIMIENTOS PROPIOS
+#2. FUNCIONES Y PROCEDIMIENTOS PROPIOS - LOS CREAMOS CON DEF
+#Funcion que retorna el perimetro del triangulo con los lados enviados por parametro
 def calcularPerimetro(lado1, lado2, lado3):
     return lado1 + lado2 + lado3
 
+#Funcion que retorna el area del triangulo con los lados enviados por parametro
 def calcularArea(l1, l2, l3):
     s = (l1 + l2 + l3) / 2
     area = math.sqrt(s * (s - l1) * (s - l2) * (s - l3))
     return area
 
+#funcion que retorna un numero flotante, se indica la etiqueta enviada por parametro
 def leerFlotante(mensaje):
     lado = float(input(mensaje))
     return lado
@@ -49,13 +52,13 @@ lado3 = leerFlotante("LADO 3: ")
 
 #5. PROCESOS - FORMULAS
 #perimetro = lado1 + lado2 + lado3
-perimetro = calcularPerimetro(lado1, lado2, lado3)
-area = calcularArea(lado1, lado2, lado3)
+perimetro = calcularPerimetro(lado1, lado2, lado3)  #invocar o llamar la funcion
+area = calcularArea(lado1, lado2, lado3)   #invocar o llamar la funcion
 
 #6. SALIDAS CON PRINT
 os.system("cls")
-mostrarPerimetro (lado1, lado2, lado3, perimetro)
-mostrarArea (lado1, lado2, lado3, area)
+mostrarPerimetro (lado1, lado2, lado3, perimetro) #invocar el procedimiento
+mostrarArea (lado1, lado2, lado3, area)  #invocar el procedimiento
 
 
 
