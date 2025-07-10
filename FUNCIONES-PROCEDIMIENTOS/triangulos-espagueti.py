@@ -1,8 +1,6 @@
 '''
 Desarrollar un programa en Lenguaje Python, que permita hallar el área y perímetro de cualquier triángulo, construyendo sus propias funciones, para las entradas, procesos y salidas:
-
 NOTA: NO se conoce la altura, solamente los tres lados (Investigar por AI)
-
 '''
 
 #1. IMPORTAR LIBRERIAS DEL LENGUAJE
@@ -26,8 +24,12 @@ lado3 = float(input("LADO 3: "))
 #5. PROCESOS - FORMULAS
 perimetro = lado1 + lado2 + lado3
 
+s = (lado1 + lado2 + lado3) / 2
+area = math.sqrt(s * (s - lado1) * (s - lado2) * (s - lado3))
+
 #6. SALIDAS CON PRINT
 print(perimetro)
+print(area)
 
 
 

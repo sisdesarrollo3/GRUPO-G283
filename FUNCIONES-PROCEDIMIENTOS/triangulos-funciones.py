@@ -32,13 +32,13 @@ def mostrarPerimetro (l1, l2, l3, p):
     print("=" * 50)
     print(f"{l1} \t {l2} \t {l3} \t {p}")
 
-def mostrarArea (l1, l2, l3, a):
-    
+def mostrarArea (l1, l2, l3, a):    
     print("\n***** AREA *********")
     print(f"LADO1 LADO2 LAD03 AREA")
     print("=" * 50)
     print(f"{l1} \t {l2} \t {l3} \t {a:.1f}")
 
+#3. RESERVAMOS E INICIALIZAMOS VARIABLES
 lado1 = 0
 lado2 = 0
 lado3 = 0
@@ -56,7 +56,7 @@ perimetro = calcularPerimetro(lado1, lado2, lado3)  #invocar o llamar la funcion
 area = calcularArea(lado1, lado2, lado3)   #invocar o llamar la funcion
 
 #6. SALIDAS CON PRINT
-os.system("cls")
+os.system("cls")   #limpiar pantalla del terminal
 mostrarPerimetro (lado1, lado2, lado3, perimetro) #invocar el procedimiento
 mostrarArea (lado1, lado2, lado3, area)  #invocar el procedimiento
 
