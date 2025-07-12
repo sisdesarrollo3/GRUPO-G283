@@ -36,7 +36,7 @@ def generarSalida(valorCompra, porcentaje, descuento, valorFinal):
     print("\n***** DETALLES DE LA COMPRA *********")
     print("VALOR COMPRA PORCENTAJE  DESCUENTO  VALOR FINAL")    
     print("=" * 50)
-    print(f"{valorCompra}  {porcentaje}%  {descuento}  {valorFinal}")
+    print(f"{valorCompra} \t {porcentaje}% \t {descuento} \t {valorFinal}")
     
 
 #3. RESERVAMOS E INICIALIZAMOS VARIABLES
