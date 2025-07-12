@@ -31,7 +31,13 @@ def hallarNombreDia(numeroDia):
             nombreDia =  "Número no válido, debe ser del 1 al 7"
     return nombreDia
 
-
+def mostrarSalida(numeroDia, nombreDia):
+    import os
+    os.system("cls")   #limpiar pantalla del terminal
+    print("\n***** DÍA DE LA SEMANA *********")
+    print(f"NÚMERO: {numeroDia} \t DÍA: {nombreDia}")
+    print("=" * 50) 
+    
 #3. RESERVAMOS E INICIALIZAMOS VARIABLES
 numeroDia = 0
 nombreDia = ""
@@ -43,5 +49,5 @@ numeroDia = int(input("Ingrese un número del 1 al 7: "))
 nombreDia = hallarNombreDia(numeroDia)
 
 #6. SALIDAS CON PRINT
-print(f"El día de la semana correspondiente al número {numeroDia} es: {nombreDia}")
+mostrarSalida(numeroDia, nombreDia)
 
