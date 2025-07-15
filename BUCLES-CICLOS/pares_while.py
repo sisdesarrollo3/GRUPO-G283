@@ -5,6 +5,10 @@ ANALISIS:
    PROCESOS: par = contador * 2
    SALIDAS :  par
 '''
+#BUCLE    variable control inicia en un valor  CONTADOR
+#         variable control es comparada con el valor final CONTADOR
+#         variable control debe ser incrementada  CONTADOR
+# todo bucle se ejecuta mientras la condicion sea VERDADERO, sale por FALSO
 
 par = 0
 n = 0

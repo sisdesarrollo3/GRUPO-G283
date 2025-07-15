@@ -15,7 +15,7 @@ n = int(input("CUANTOS PARES: "))
 #BUCLE    variable control inicia en un valor
 #         variable control es comparada con el valor final
 #         variable control debe ser incrementada
-    
+# todo bucle se ejecuta mientras la condicion sea VERDADERO, sale por FALSO    
 for contador in range (1, n+1, 1):
     par = contador * 2
     print(par)    #salida en tiempo parcial
