@@ -16,7 +16,7 @@ def limpiarPantalla ():
 ###############################################
 #función lee un solo carácter NO espera ENTER #
 ###############################################
-def LeerCaracter (mensaje):
+def leerCaracter (mensaje):
   print(mensaje, end="", flush=True)
   return msvcrt.getch().lower().decode('utf-8')  #getch captura un solo caracter No hay que dar enter
 
