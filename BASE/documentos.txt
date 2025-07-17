@@ -1,0 +1,100 @@
+
+¡Por supuesto! 📚 Aquí tienes los mismos cuadros organizados para trabajar con **listas** en Python — una de las estructuras más versátiles y utilizadas:
+
+---
+
+### 🔧 Operaciones básicas sobre listas
+
+| Método / Acción | Descripción | Ejemplo |
+|----------------|-------------|---------|
+| `lista[index]` | Accede al valor por posición | `nombres[0]` |
+| `lista[index] = valor` | Modifica un elemento | `edades[2] = 30` |
+| `len(lista)` | Número de elementos | `len(colores)` |
+| `del lista[index]` | Elimina el elemento | `del frutas[1]` |
+| `valor in lista` | Verifica existencia | `"manzana" in frutas` |
+
+---
+
+### 🧪 Métodos útiles de listas
+
+| Método | Qué hace | Ejemplo |
+|--------|----------|---------|
+| `.append(valor)` | Agrega al final | `frutas.append("kiwi")` |
+| `.insert(pos, valor)` | Inserta en posición específica | `frutas.insert(1, "pera")` |
+| `.extend(otra_lista)` | Une listas | `frutas.extend(["limón", "uva"])` |
+| `.pop()` / `.pop(index)` | Elimina y devuelve el último o por índice | `frutas.pop()` |
+| `.remove(valor)` | Elimina el primer valor que coincida | `frutas.remove("pera")` |
+| `.clear()` | Vacía la lista | `frutas.clear()` |
+| `.sort()` | Ordena la lista | `numeros.sort()` |
+| `.reverse()` | Invierte el orden | `frutas.reverse()` |
+| `.copy()` | Crea una copia | `nueva_lista = frutas.copy()` |
+| `.count(valor)` | Cuenta ocurrencias de un valor | `frutas.count("manzana")` |
+| `.index(valor)` | Da el índice de la primera aparición | `frutas.index("uva")` |
+
+---
+
+### 🔄 Ejemplo práctico
+
+```python
+frutas = ["manzana", "pera", "banana"]
+frutas.append("kiwi")
+print(frutas)  # ['manzana', 'pera', 'banana', 'kiwi']
+```
+
+---
+
+🔁 Las listas **sí conservan el orden** y **pueden contener duplicados**, a diferencia de los sets. Si quieres trabajar con listas anidadas, comprensión de listas o convertirlas en estructuras tipo pila o cola, también te puedo mostrar cómo.
+
+¿Te gustaría una tabla comparativa entre listas, sets y diccionarios? Podemos armarla en segundos 🧩.
+
+*********************************************+
+
+
+¡Perfecto! 🧠 Los diccionarios (`dict`) en Python son increíblemente útiles para almacenar datos en forma de pares **clave:valor**. Aquí tienes un resumen de las operaciones más comunes y poderosas que puedes hacer con ellos:
+
+---
+
+### 🔧 Operaciones básicas
+
+| Método / Acción | Descripción | Ejemplo |
+|----------------|-------------|---------|
+| `dict[key]` | Acceder al valor de una clave | `persona["nombre"]` |
+| `dict[key] = value` | Asignar/modificar el valor | `persona["edad"] = 25` |
+| `del dict[key]` | Eliminar una clave | `del persona["edad"]` |
+| `len(dict)` | Número de pares clave:valor | `len(persona)` |
+| `key in dict` | Verificar si existe una clave | `"nombre" in persona` |
+
+estudiantes["sara"]["nota"]
+---
+
+### 🧪 Métodos útiles
+
+| Método | Qué hace | Ejemplo |
+|--------|----------|---------|
+| `.get(key)` | Devuelve el valor o `None` si no existe | `persona.get("apellido")` |
+| `.keys()` | Devuelve todas las claves | `persona.keys()` |
+| `.values()` | Devuelve todos los valores | `persona.values()` |
+| `.items()` | Devuelve pares clave:valor | `persona.items()` |
+| `.update(otro_dict)` | Agrega o actualiza claves | `persona.update({"ciudad": "Bogotá"})` |
+| `.pop(key)` | Elimina y devuelve el valor | `persona.pop("edad")` |
+| `.clear()` | Vacía el diccionario | `persona.clear()` |
+| `.copy()` | Crea una copia del diccionario | `nuevo = persona.copy()` |
+
+---
+
+### 🧠 Extra: diccionarios anidados
+
+Puedes tener diccionarios dentro de diccionarios:
+
+```python
+estudiantes = {
+    "Juan": {"edad": 20, "nota": 4.5},
+    "Sara": {"edad": 22, "nota": 4.8}
+}
+```
+
+Acceder a la nota de Sara: `estudiantes["Sara"]["nota"]`
+
+---
+
+¿Te gustaría que te prepare un ejemplo aplicado a algo como registro de usuarios, inventario de productos o seguimiento de calificaciones? Podemos hacerlo en unos segundos 🚀.
