@@ -42,7 +42,7 @@ print(f"PROMEDIO DE VALERIA {promedio}")
 
 #NOTAS DE TODOS
 for clave in estudiantes.keys():
-    promedio = (estudiantes[clave]["materias"]["programacion"] + estudiantes["est02"]["materias"]["ingles"] + estudiantes["est02"]["materias"]["habilidades"]) / 3
+    promedio = (estudiantes[clave]["materias"]["programacion"] + estudiantes[clave]["materias"]["ingles"] + estudiantes[clave]["materias"]["habilidades"]) / 3
     print(f"PROMEDIO {promedio}")
 
 
