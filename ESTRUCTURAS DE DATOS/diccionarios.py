@@ -15,6 +15,7 @@ valor = input("Color en Ingles: ")
 
 traductor[clave] = valor
 
+
 #mostrar el tipo de estructura
 print (f"TIPO DEL DICCIONARIO {type(traductor)}")
 
