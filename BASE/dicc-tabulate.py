@@ -31,3 +31,20 @@ with open("datos.pkl", "rb") as archivo:
     cargado = pickle.load(archivo)
 
 print(cargado)
+
+# Aplanamos cada estudiante, cuando se contiene dicciconario de diccionarios
+filas = []
+for id_est, info in datos.items():
+    fila = {
+        'ID': id_est,
+        'Nombre': info['nombre'],
+        'Correo': info['correo'],
+        'Nacimiento': f"{info['nacimiento']['dia']:02d}/{info['nacimiento']['mes']:02d}/{info['nacimiento']['anyo']}",
+        'Programación': info['materias']['programacion'],
+        'Inglés': info['materias']['ingles'],
+        'Habilidades': info['materias']['habilidades']
+    }
+    filas.append(fila)
+
+# Imprimimos la tabla
+print(tabulate(filas, headers="keys", tablefmt="double_grid")) #fancy_grid, double_grid, grid

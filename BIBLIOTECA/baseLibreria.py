@@ -43,7 +43,7 @@ def leerDiccionario (diccionario, mensaje):
           if opcion in diccionario:
                 return opcion
           else:
-            print("Error: Opción NO válida", end="", flush=True)
+            print("❌  " + Fore.RED + Style.BRIGHT + "OPCION NO VALIDA" + Style.RESET_ALL, end="", flush=True)
             time.sleep(1) # Pausa breve de 1 segundo
             print(end="\r\033[K") # Mueve el cursor al inicio de la linea y limpia la línea
 
@@ -231,10 +231,21 @@ def menuCrudDos( titulo ):
                      tablefmt='fancy_grid',
                      stralign='left'))
 
+
 #----------------------------------------------------------------------------#
 #Función para listar cualquier lista, le debo enviar la lista y el encezado  #
 #----------------------------------------------------------------------------#
-def listar(encabezado, listas): 
+def listar( listas ):
+    # Convertimos a lista de listas para tabular
+    tabla = [[id] + list(info.values()) for id, info in listas.items()]
+    encabezado = ["ID"] + list(next(iter(listas.values())).keys())
+
+    print(tabulate(tabla, headers=encabezado, tablefmt='fancy_grid', floatfmt=".1f"))
+
+#----------------------------------------------------------------------------#
+#Función para listar cualquier lista, le debo enviar la lista y el encezado  #
+#----------------------------------------------------------------------------#
+def listar2(encabezado, listas): 
     # Formatear columnas de numeros que no salga exponencial
     limpiarPantalla()
     headers = encabezado

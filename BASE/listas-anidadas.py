@@ -1,17 +1,21 @@
 #definir el diccionario
-estudiantes = {
-    "est01": {"nombre": "Ernesto", "correo": "ernesto@gmail.com", 
-              "nacimiento":{"anyo": 1964, "mes": 1, "dia": 31},
-               "materias": {"programacion": 4.5, "ingles": 3.5, "habilidades": 5}
-             },
-    "est02": {"nombre": "Valeria", "correo": "ernesto@gmail.com", 
-              "nacimiento":{"anyo": 2000, "mes": 12, "dia": 31},
-               "materias": {"programacion": 5, "ingles": 4.5, "habilidades": 5}
-             }
-}
-
+estudiantes = [
+        ["est01", "Ernesto", "ernesto@gmail.com", [1964, 1, 31], [4.5, 3.5, 5]],
+        ["est02", "Valeria", "valeria@gmail.com", [2000, 12, 1], [5, 4.5, 5]]
+]
+estudiantes.append(["est03", "Eduardo"])  
 print(estudiantes)
 
+for registro in estudiantes:    
+    print(registro)
+
+for registro in estudiantes:    
+    for elemento in registro:
+        print(elemento)
+#print(f"ESTUDIANTE est01: {estudiantes[0]}")
+#print(f"ESTUDIANTE est01 : {estudiantes[0]} NOTA DE PROGRMACION: {estudiantes[0][4][0]}")
+#print(f"ESTUDIANTE est01 : {estudiantes[0]} NOTA DE INBLES: {estudiantes[0][4][1]}")
+'''
 #mostrar el cumpleaños de ernesto  MES 1 - DIA 31
 print(f"CUMPLEAÑOS EL MES {estudiantes["est01"]["nacimiento"]["mes"]}   DIA {estudiantes["est01"]["nacimiento"]["dia"]}")
 
@@ -51,3 +55,5 @@ encabezado = ["ID"] + list(next(iter(estudiantes.values())).keys())
 
 from tabulate import tabulate
 print(tabulate(tabla, headers=encabezado, tablefmt='fancy_grid', floatfmt=".1f"))
+
+'''
