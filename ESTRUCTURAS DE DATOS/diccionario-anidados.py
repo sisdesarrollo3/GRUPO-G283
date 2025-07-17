@@ -34,3 +34,15 @@ meses = {
 #mostrar el cumpleaños de ernesto  MES Enero - DIA 31
 nombreMes = meses[str(estudiantes["est01"]["nacimiento"]["mes"])]
 print(f"CUMPLEAÑOS EL MES {nombreMes}   DIA {estudiantes["est01"]["nacimiento"]["dia"]}")
+
+#MOSTRAR EL PROMEDIO DE NOTAS DE VALERIA
+promedio = (estudiantes["est02"]["materias"]["programacion"] + estudiantes["est02"]["materias"]["ingles"] + estudiantes["est02"]["materias"]["habilidades"]) / 3
+
+print(f"PROMEDIO DE VALERIA {promedio}")
+
+#NOTAS DE TODOS
+for clave in estudiantes.keys():
+    promedio = (estudiantes[clave]["materias"]["programacion"] + estudiantes["est02"]["materias"]["ingles"] + estudiantes["est02"]["materias"]["habilidades"]) / 3
+    print(f"PROMEDIO {promedio}")
+
+
