@@ -62,18 +62,45 @@ def main():
             case '2':
                 libreria.limpiarPantalla()
                 print("*** LISTAR ENTIDAD ***")
-                print(triangulos)
-                input()
+                #print(triangulos)
+                if ( triangulos ):
+                    libreria.listar( triangulos )
+                    libreria.mensajeEsperaEnter(">>>>>> FIN DE LISTAR <ENTER> CONTINUAR")
+                else:
+                    libreria.mensajeEsperaSegundos(">>> NADA PARA MOSTRAR ", 1)
                 #time.sleep(1)
             case '3':
-                print("PROXIMAMENTE CONSULTAR UNA ENTIDAD X EL CODIGO")
-                time.sleep(1)
+                libreria.limpiarPantalla()
+                print("*** CONSULTAR ENTIDAD ***")
+                #print(triangulos)
+                if ( triangulos ):
+                    codigo = libreria.leerCadena("CODIGO: ", 10).lower()
+                    if (codigo in triangulos.keys()):
+                        triangulo = {codigo: triangulos[codigo]}
+                        libreria.listar(triangulo)
+                        libreria.mensajeEsperaEnter(">>>>>> FIN DE CONSULTAR <ENTER> CONTINUAR")
+                    else:
+                        libreria.mensajeEsperaSegundos(">>> EL CODIGO NO EXISTE ", 1)
+
             case '4':
                 print("PROXIMAMENTE ACTUALIZAR UNA ENTIDAD POR EL CODIGO")
                 time.sleep(1)
             case '5':
-                print("PROXIMAMENTE ELIMINAR UNA ENTIDAD X EL CODIGO")
-                time.sleep(1)
+                libreria.limpiarPantalla()
+                print("*** ELIMINAR ENTIDAD ***")
+                #print(triangulos)
+                if ( triangulos ):
+                    codigo = libreria.leerCadena("CODIGO: ", 10).lower()
+                    if (codigo in triangulos.keys()):
+                        triangulo = {codigo: triangulos[codigo]}
+                        libreria.listar(triangulo)
+                        respuesta = libreria.leerCaracter("ESTA SEGURO DE ELIMINAR (Sí / No): ")[0].lower()
+                        if (respuesta == 's'):
+                            del triangulos[codigo]
+                            libreria.guardar(triangulos, nombreArchivo)
+                            #libreria.mensajeErrorEsperaSegundos(">>>>> REGISTRO ELIMINADO", 1)
+                    else:
+                        libreria.mensajeEsperaSegundos(">>> EL CODIGO NO EXISTE ", 1)
             case '6':
                 print("SALE DEL PROGRAMA")
                 time.sleep(1)
