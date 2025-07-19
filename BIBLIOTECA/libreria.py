@@ -92,11 +92,20 @@ def mensajeEsperaEnter( mensaje ):
 #Función para listar cualquier lista, le debo enviar la lista y el encezado  #
 #----------------------------------------------------------------------------#
 def listar( listas ):
-    # Convertimos a lista de listas para tabular
-    tabla = [[id] + list(info.values()) for id, info in listas.items()]
-    encabezado = ["ID"] + list(next(iter(listas.values())).keys())
+    # Códigos ANSI para color verde
+    verde = '\033[92m'
+    reset = '\033[0m'
 
+    # Construir encabezado con color
+    encabezado = ["ID"] + list(next(iter(listas.values())).keys())
+    encabezado = [verde + col.upper() + reset for col in encabezado]
+
+    # Construir la tabla
+    tabla = [[id] + list(info.values()) for id, info in listas.items()]
+
+    # Imprimir tabla con encabezado colorido
     print(tabulate(tabla, headers=encabezado, tablefmt='fancy_grid', floatfmt=".1f"))
+
 
 #-------------------------------------------------------------------#
 #recibe un diccionario lo muestra y validad la opcion del usuario   #

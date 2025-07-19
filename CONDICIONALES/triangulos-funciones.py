@@ -58,6 +58,12 @@ def hallarTipoTriangulo(l1, l2, l3):
         contadorIsosceles += 1
     return mensaje
 
+def valiarTriangulo(lado1, lado2, lado3):
+    valido = False
+    if (lado1 + lado2 > lado3) and (lado1 + lado3 > lado2) and (lado2 + lado3 > lado1):
+        valido = True
+    return valido
+
 #3. RESERVAMOS E INICIALIZAMOS VARIABLES
 lado1 = 0
 lado2 = 0
