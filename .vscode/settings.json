@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./BIBLIOTECA"
+        "./BIBLIOTECA",
+        "./10. BIBLIOTECA"
     ]
 }

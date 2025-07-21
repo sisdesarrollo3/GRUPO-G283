@@ -3,6 +3,7 @@ import os
 import time
 import sys
 import copy
+import math
 
 # Obtener la ruta absoluta de la carpeta raíz del proyecto (PROYECTO) 
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -12,20 +13,57 @@ sys.path.append(os.path.join(base_dir, "BIBLIOTECA"))
 import libreria   #la primera vez muestra error de sintaxis
 
 #FUNCIONES PROPIAS
+#Funcion que retorna el perimetro del triangulo con los lados enviados por parametro
+def calcularPerimetro(lado1, lado2, lado3):
+    return lado1 + lado2 + lado3
+
+#Funcion que retorna el area del triangulo con los lados enviados por parametro
+def calcularArea(l1, l2, l3):
+    s = (l1 + l2 + l3) / 2
+    area = math.sqrt(s * (s - l1) * (s - l2) * (s - l3))
+    return area
+
+def hallarTipoTriangulo(l1, l2, l3):
+    mensaje= "ISOSCELES"
+    if l1 == l2 and l2 == l3:
+        mensaje = "EQUILATERO"
+    elif (l1 != l2 and l1 != l3 and l2 != l3 ):
+        mensaje = "ESCALENO" 
+    return mensaje
+
+def valiarTriangulo(lado1, lado2, lado3):
+    valido = False
+    if(lado1 + lado2 > lado3) and (lado1 + lado3 > lado2) and (lado2 + lado3 > lado1):
+        valido = True
+    return valido
+
+#LEER LOS DATOS DE LA ESTRUCTURA UNO A UNO, 
+#SI ES POSIBLE CONSTRUIR EL TRIANGULO, RETORNA LOS VALORES, SI  NO RETORNA VACIO
 def leerDatos():
     valores = {}
     lado1 = libreria.leerFlotante("LADO 1: ", 1, 9999999999)
     lado2 = libreria.leerFlotante("LADO 2: ", 1, 9999999999)
     lado3 = libreria.leerFlotante("LADO 3: ", 1, 9999999999)
 
-    #armar la estructura como diccionario
-    valores = {
-        "lado1": lado1,
-        "lado2": lado2,
-        "lado3": lado3
-    }
+    if (valiarTriangulo(lado1, lado2, lado3)):
+        #armar la estructura como diccionario
+        area = calcularArea( lado1, lado2, lado3)
+        perimetro = calcularPerimetro(lado1, lado2, lado3)
+        tipoTriangulo = hallarTipoTriangulo(lado1, lado2, lado3)
+        valores = {
+            "lado1": lado1,
+            "lado2": lado2,
+            "lado3": lado3,
+            "area": area,
+            "perimetro": perimetro,
+            "tipo": tipoTriangulo
+        }
+    else:
+        libreria.mensajeErrorEsperaSegundos(">>>> NO SE PUEDE CONSTRUIR EL TRIANGULO CON ESTOS LADOS", 1)
     return valores
 
+#RECIBE LA ESTRUCTURA INDIVIDUAL, Y SOBRE LA MISMA SE SOBRESCRIBEN LOS VALORES, 
+#SI ES POSIBLE CONSTRUIR EL TRIANGULO, RETORNA LOS VALORES, SI  NO RETORNA VACIO
 def actualizar( triangulo ):
     valores = {}
     codigo = next(iter(triangulo))
@@ -41,13 +79,22 @@ def actualizar( triangulo ):
                 triangulo[codigo]["lado2"] = libreria.leerFlotante("LADO 1: ", 1, 9999999999)
             case '3':
                 triangulo[codigo]["lado3"] = libreria.leerFlotante("LADO 1: ", 1, 9999999999)
-            case '4':
-                valores = {
-                    "lado1": triangulo[codigo]["lado1"],
-                    "lado2": triangulo[codigo]["lado2"],
-                    "lado3": triangulo[codigo]["lado3"]
-                }
-                return valores
+            case '4':   
+                if (valiarTriangulo(triangulo[codigo]["lado1"], triangulo[codigo]["lado2"], triangulo[codigo]["lado3"])):             
+                    area = calcularArea( triangulo[codigo]["lado1"], triangulo[codigo]["lado2"], triangulo[codigo]["lado3"])
+                    perimetro = calcularPerimetro(triangulo[codigo]["lado1"], triangulo[codigo]["lado2"], triangulo[codigo]["lado3"])
+                    tipoTriangulo = hallarTipoTriangulo(triangulo[codigo]["lado1"], triangulo[codigo]["lado2"], triangulo[codigo]["lado3"])
+                    valores = {
+                        "lado1": triangulo[codigo]["lado1"],
+                        "lado2": triangulo[codigo]["lado2"],
+                        "lado3": triangulo[codigo]["lado3"],
+                        "area": area,
+                        "perimetro": perimetro,
+                        "tipo": tipoTriangulo
+                    }
+                    return valores
+                else:
+                    libreria.mensajeErrorEsperaSegundos(">>>> NO SE PUEDE CONSTRUIR EL TRIANGULO CON ESTOS LADOS", 1)
             case '5':
                 return valores
 
@@ -77,8 +124,6 @@ def menu ():
 triangulo = {}    #para la estructura individual
 triangulos = {}   #para almacenar todas las estructura individuales
 
-nombreArchivo = "triangulos.dat"
-
 def main():
     while True:
         menu()
@@ -90,9 +135,10 @@ def main():
                 codigo = libreria.leerCadena("CODIGO: ", 10).lower()
                 if not (codigo in triangulos.keys()):
                     valores = leerDatos()
-                    triangulos[codigo] = valores
-                    libreria.guardar(triangulos, nombreArchivo)
-                    libreria.mensajeErrorEsperaSegundos("INSERTADO CORRECTAMENTE", 2)
+                    if (valores):
+                        triangulos[codigo] = valores
+                        libreria.guardar(triangulos, nombreArchivo)
+                        libreria.mensajeEsperaSegundos("INSERTADO CORRECTAMENTE", 2)
                 else:
                     libreria.mensajeErrorEsperaSegundos(" CODIGO YA EXISTE - NO PERMITO DUPLICADOS", 2)
             case '2':
@@ -137,8 +183,6 @@ def main():
                         #input()
                     else:
                         libreria.mensajeEsperaSegundos('>>>>> CODIGO NO EXISTE', 1)
-
-
             case '5':
                 libreria.limpiarPantalla()
                 print("*** ELIMINAR ENTIDAD ***")
@@ -162,5 +206,6 @@ def main():
 
 
 if __name__ == "__main__":
+    nombreArchivo = os.path.join("DATA", 'triangulo.dat')
     triangulos = libreria.cargar(triangulos, nombreArchivo)    
     main()
