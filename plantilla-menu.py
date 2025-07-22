@@ -38,5 +38,5 @@ if __name__ == "__main__":
     nombreArchivo = os.path.join("DATA", 'energias.csv')
     df = pd.read_csv(nombreArchivo) # Asegúrate de que el archivo esté en ruta DATA
     # Convertir a diccionario con países como claves
-    data = df.set_index("pais").to_dict(orient="index")
+    data = df.set_index("pais").to_dict(orient="index")   #en lugar del indice (0.1.,,,,) trabaja con la clave pais
     main()

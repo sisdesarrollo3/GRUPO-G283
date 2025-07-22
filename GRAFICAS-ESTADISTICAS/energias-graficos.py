@@ -1,6 +1,7 @@
 import os
 import time
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def menu ():    
@@ -10,6 +11,42 @@ def menu ():
     print ("[3]. GRÁFICAR LINEAS")
     print ("[4]. SALIR")
 
+def graficar_pastel( data ):
+    df = pd.DataFrame.from_dict(data, orient='index')  #convertimos el diccionario a dataframe - tabla
+
+    #crear el gráfico de produccion
+    plt.figure(figsize=(6,5))     #tamaño del grafico en pulgadas
+    plt.pie (
+        df["produccion"],          #nombramos la columna de produccion
+        labels  = df.index,        #Etiquetas con el nombrre del pais
+        autopct = '%1.1f%%',       #mostrar porcentaje con un decimal
+        startangle = 90,            #empezar desde arriba 90 grado
+        colors = ["#98FB98", "#87CEFA", "#FFB347", "#DDA0DD"],  # Colores por país
+        wedgeprops = {'edgecolor': 'black'},  #Borde negro por cada porcion
+        shadow = True              #sombra para el efecto 3D
+    ) 
+
+    plt.title("Distribución Producción - Energías Renovables x País")
+    plt.tight_layout()
+    plt.show()
+
+    #crear el gráfico de consumo
+    plt.figure(figsize=(6,5))     #tamaño del grafico en pulgadas
+    plt.pie (
+        df["consumo"],          #nombramos la columna de produccion
+        labels  = df.index,        #Etiquetas con el nombrre del pais
+        autopct = '%1.1f%%',       #mostrar porcentaje con un decimal
+        startangle = 90,            #empezar desde arriba 90 grado
+        colors = ["#98FB98", "#87CEFA", "#FFB347", "#DDA0DD"],  # Colores por país
+        wedgeprops = {'edgecolor': 'black'},  #Borde negro por cada porcion
+        shadow = True              #sombra para el efecto 3D
+    ) 
+
+    plt.title("Distribución Consumo - Energías Renovables x País")
+    plt.tight_layout()
+    plt.show()
+
+
 def main():    
     while True:
         os.system('cls')
@@ -17,7 +54,7 @@ def main():
         opcion = input("OPCION: ")[0].lower()
         match opcion:
             case '1':
-                print ("PROXIMAMENTE HISTOGRAMAS")
+                graficar_pastel( data )
                 time.sleep(1)
             case '2':
                 print ("PROXIMAMENTE PASTEL")

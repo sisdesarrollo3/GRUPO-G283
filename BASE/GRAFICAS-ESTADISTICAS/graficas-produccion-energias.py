@@ -10,8 +10,8 @@ def leer_archivo(archivo):
         return None
     
 
-def graficarPastel ( data ): 
-    df = pd.DataFrame.from_dict(data, orient="index")   # Convertimos el diccionario a DataFrame
+def graficarPastel ( df ): 
+    #df = pd.DataFrame.from_dict(data, orient="index")   # Convertimos el diccionario a DataFrame
 
     # Creamos gráfico de pastel para Producción
     plt.figure(figsize=(6, 5))                          # Tamaño del gráfico
