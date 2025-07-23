@@ -1,0 +1,220 @@
+<!DOCTYPE html> <!-- Indica que este archivo es un documento HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y define el idioma como español -->
+
+<head> <!-- Contiene metadatos y configuración de la página -->
+    <meta charset="UTF-8"> <!-- Define el conjunto de caracteres para evitar errores con tildes y ñ -->
+    <title>Mi Página Responsive</title> <!-- Título que aparece en la pestaña del navegador -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página se adapte a móviles -->
+
+    <style> /* Sección de estilos internos en CSS */
+        /* El asterisco * selecciona todos los elementos HTML - resetep suave de estilos*/
+        * {
+            box-sizing: border-box; /* Hace que el padding y border se incluyan en el tamaño total */
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif; /* Fuente general */
+            line-height: 1.6; /* Altura entre líneas */
+            background-color: #f4f4f4; /* Color de fondo claro */
+        }
+
+        header {
+            background-color: #2c3e50; /* Fondo oscuro para el encabezado */
+            color: white; /* Texto blanco */
+            padding: 20px;
+            text-align: center; /* Centra el texto del encabezado */
+        }
+
+        /* nav es el elemento, lista dentro del nav*/
+        nav ul {
+            display: flex; /* Muestra los elementos en fila */
+            justify-content: center; /* Centra horizontalmente el menú */
+            list-style: none; /* Quita los puntos de la lista */
+            background-color: #34495e; /* Color de fondo del menú */
+        }
+
+        /* nav es el elemento, lista dentro del nav, li item dentro de la lista*/
+        nav ul li {
+            margin: 10px;
+        }
+
+        /* a enlace dentro del item */
+        nav ul li a {
+            color: white;
+            text-decoration: none; /* Quita el subrayado de los enlaces */
+            padding: 8px 15px;
+            display: block;
+        }
+
+        /* hover estado cuando el mouse pasa sobre el enlace */
+        nav ul li a:hover { 
+            background-color: #1abc9c; /* Color al pasar el cursor sobre el enlace */
+        }
+
+        /*main {
+            padding: 20px;
+        }*/
+        main {
+            display: flex;              /* Activa modo flexbox horizontal */
+            flex-wrap: wrap;            /* Permite que se ajuste en pantallas pequeñas */
+            gap: 20px;                  /* Espacio entre columna principal y aside */
+        }
+
+        section {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px; /* Bordes redondeados para cada sección */
+            box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Sombra suave alrededor */
+        }
+
+        section, article {
+             text-align: left;  /* El texto se alinea a la izquierda */
+        }
+
+        
+        .contenido {
+            display: flex;           /* Activamos distribución horizontal */
+            gap: 20px;               /* Separación entre secciones y aside */
+            align-items: flex-start; /* Alineamos arriba */  
+            max-width: 1200px; /* Limita el ancho total del contenido */
+            margin: 0 auto;    /* Centra el contenido en pantalla */
+        }
+
+        .principal {
+            flex: 3;                 /* Parte principal más ancha */
+            display: flex;           /* Activamos distribución horizontal */
+            flex-direction: column;
+            gap: 20px;  
+        }
+
+        article h2 {
+            color: #2c3e50;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        aside {
+            flex: 1;
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #3498db;
+            width: 10%;          /* Ocupa solo el 20% del contenedor */
+            max-width: 240px;     /* No se hace más ancho que esto */
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: flex-start;
+        }
+
+        .redes-sociales img {
+            transition: transform 0.3s;
+        }
+
+        .redes-sociales img:hover {
+            transform: scale(1.2);
+        }
+
+        /* consulta de medios en CSS - condicion */
+        /*que permite aplicar estilos solo cuando el ancho de la pantalla (viewport) es de 768 píxeles o menos */
+        @media (max-width: 768px) { /* Regla para pantallas pequeñas como celulares */
+            nav ul {
+                flex-direction: column; /* Pone el menú en vertical */
+            }
+
+            nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            /* margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 0;
+            margin-right: 0;*/
+        }
+    </style>
+</head>
+
+<body> <!-- Cuerpo principal del sitio -->
+
+    <header> <!-- Encabezado del sitio -->
+        <h1>Bienvenido a Mi Sitio Responsive</h1>
+    </header>
+
+    <nav> <!-- Menú de navegación -->
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main> <!-- Zona principal del contenido -->
+        <div class="contenido">
+            <div class="principal">
+                <section id="inicio"> <!-- Sección de inicio -->
+                    <article> <!-- Artículo dentro de la sección -->
+                        <h2>Acerca de nosotros</h2>
+                        <p>Somos una página diseñada para adaptarse a cualquier dispositivo. ¡Explora y descubre más!</p>
+                    </article>
+                </section>
+
+                <section id="servicios"> <!-- Sección de servicios -->
+                    <article>
+                        <h2>Servicios</h2>
+                        <p>Ofrecemos soluciones digitales, desarrollo web, y asesoría personalizada para tus proyectos.</p>
+                    </article>
+                </section>
+
+                <section id="contacto"> <!-- Sección de contacto -->
+                    <article>
+                        <h2>Contacto</h2>
+                        <p>Escríbenos a contacto@misitio.com o síguenos en nuestras redes sociales.</p>
+                    </article>
+                </section>
+            </div>            
+        
+            <aside>
+                <h3>Conéctate con nosotros</h3>
+                <p>Síguenos en nuestras redes sociales para estar al día:</p>
+
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="32">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="32">
+                    </a>
+                    <a href="https://twitter.com/" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="32">
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="32">
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="32">
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer> <!-- Pie de página -->
+        <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
