@@ -1,0 +1,38 @@
+
+/* Aplicamos estilos desde el archivo*/
+/*[1]. Referenciando el nombre de la etiqueta */
+body {
+    font-family: Arial, Helvetica, sans-serif;  /*fuente general*/
+    line-height: 1.6;  /* Altura entre las líneas*/
+    background-color: #f4f4f4; /* Color fondo*/
+}
+
+header {
+    background-color: #2c3e50;  /*Color de fondo*/
+    color: white;  
+    padding: 15px;   /* margenes internos*/
+    text-align: center; /*centra el texto del encabezado*/
+}
+
+nav ul {
+    display: flex;  /* muestra los elementos en fila*/
+    justify-content: center; /*centra horizontalmente el menu*/
+    list-style: none;  /*quita los puntos de la lista*/
+    background-color: #34495e;
+    color: white;
+}
+
+nav ul li {
+    color: white;
+    text-decoration: none; /* quita el sub-rayado de los enlaces */
+    padding: 8px 15px;
+    display: block;
+}
+
+
+section {
+    background-color: #fff;  /*color recuadros individuales*/
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}

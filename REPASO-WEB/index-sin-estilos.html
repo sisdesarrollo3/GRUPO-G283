@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            background-color: #34495e;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #1abc9c;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        article h2 {
+            color: #2c3e50;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header>
+      <h1>MI PAGINA WEB</h1>
+   </header>
+
+   <nav>
+      <ul>
+         <li><a href="https://www.un.org/es/climatechange/what-is-renewable-energy" target="_blank">INICIO</a></li>
+         <li><a href="html/servicios.html" target="_blank">SERVICIOS</a></li>
+         <li><a href="#contactos">CONTACTOS</a></li>
+      </ul>      
+   </nav>
+
+   <main>
+      <section id="inicio">
+         <article>
+            <h1>Inicio</h1>
+            <p>
+               Para la mision, vision de la empresa
+            </p>
+         </article>
+      </section>
+
+      <section id="servicios">
+         <article>
+            <h1>Servicios</h1>
+            <p>
+               Las energías renovables son un tipo de energías derivadas por el cambio climático.
+            </p>
+         </article>
+      </section>
+
+      <section id="contactos">
+         <article>
+            <h1>Contactos</h1>
+            <p>
+               Para la mision, vision de la empresa
+            </p>
+         </article>
+      </section>
+
+      <aside>         
+         <h3>Conéctate con nosotros</h3>
+         <p>Síguenos en nuestras redes sociales para estar al día:</p>
+
+         <div class="redes-sociales">
+            <a href="https://www.facebook.com/" target="_blank">
+               <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="32">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+               <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="32">
+            </a>
+            <a href="https://x.com/" target="_blank">
+               <img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X (ex-Twitter)" width="32">
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank">
+               <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="32">
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+               <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="32">
+            </a>
+         </div>
+      </aside>
+   </main>
+   
+   <footer>
+      <p>Copy 2025 - Desarrollado por Jorozco - Todos los derechos reservados</p>
+   </footer>
+
+</body>
+</html>
