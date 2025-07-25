@@ -1,0 +1,92 @@
+
+/* Aplicamos estilos desde el archivo*/
+/*[1]. Referenciando el nombre de la etiqueta */
+body {
+    font-family: Arial, Helvetica, sans-serif;  /*fuente general*/
+    line-height: 1.6;  /* Altura entre las líneas*/
+    background-color: #f4f4f4; /* Color fondo*/
+}
+
+header {
+    background-color: #2c3e50;  /*Color de fondo*/
+    color: white;  
+    padding: 15px;   /* margenes internos*/
+    text-align: center; /*centra el texto del encabezado*/
+}
+
+nav ul {
+    display: flex;  /* muestra los elementos en fila*/
+    justify-content: center; /*centra horizontalmente el menu*/
+    list-style: none;  /*quita los puntos de la lista*/
+    background-color: #34495e;
+    color: white;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none; /* quita el sub-rayado de los enlaces */
+    padding: 8px 15px;
+    display: block;
+}
+
+/* RESALTAR CON FONDO AL PASAR EL MOUSE POR CADA OPCION DEL MENU NAV*/
+nav ul li a:hover {
+    background-color: #1abc9c;
+}
+
+main {
+    display: flex;  /* Convierte el contenedor main en un layout horizontal flexible*/
+    gap: 20px; /* espacio entre section y aside*/
+}
+
+.contenido {
+    flex: 3; 
+}
+
+section {
+    background-color: #fff;  /*color recuadros individuales*/
+    padding: 15px;
+    border-radius: 8px;  /* esquinas del box o caja sean redondeados*/
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);  /* sombreado y transparencia a los bordes*/
+    margin-bottom: 15px;  /* Margen exterior inferior*/
+}
+
+aside {
+    flex: 1;
+    background-color: #fdeef4;
+    padding: 15px;
+    border-left: 4px solid #d98880;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Aplicar estilo solo cuando se pasa el mouse por encima de cada imagen de las redes sociales*/
+.redes-sociales img:hover {
+    transition: transform 0.3s; /* transicion suave 0.3 segundos*/
+    transform: scale(1, 2); /* Estira la imagen en X y Y respectivamente*/
+}
+
+footer {
+    background-color: #2c3e50;  /*Color de fondo*/
+    color: white;  
+    padding: 30px 15px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); /*Esquinas redondas*/
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+/*Permite aplicar stilos solo cuando el ancho de la  pantalla es de 768 pixeles o menos*/
+@media(max-width: 768px){
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+}
+
+
