@@ -89,4 +89,13 @@ footer {
     gap: 20px;
 }
 
+.carousel {
+    background: #61739e;  /*color fondo del carrusel*/
+}
+
+.carousel-item img {
+    height: 150px;
+    max-height: 80vh; /*evita que se desporde en pantallas pequeñas*/
+    object-fit: contain;  /*evita que se recorte*/
+}
 
