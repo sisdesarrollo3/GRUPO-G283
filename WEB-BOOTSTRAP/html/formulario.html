@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/prueba.js"></script>
-
-
+    <script src="../js/comunicacion-html-javascrip.js"></script>
 </head>
 
 <body> <!-- background="imagenes/favicon.png" -->
@@ -79,87 +77,134 @@
     <main>
         <div class="contenido">
             <section id="inicio">
-                <article>
-                    <h1>FORMULARIO</h1>
-                    <p>
-                        Favor responder todas las preguntas - su información es reservada
-                    </p>
-                </article>
-                <form id="formulario" name="formulario" action="/guardar_datos" method="POST">
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escrribir"
-                            required>
-                    </div>
+                <div class="container">
+                    <div class="row justify-content-center mi-row">
+                        <div class="col-md-6"> <!-- 4 de 12 columnas ≈ 33% -->
+                            <article>
+                                <h1>FORMULARIO</h1>
+                                <p>
+                                    Favor responder todas las preguntas - su información es reservada
+                                </p>
+                            </article>
+                            <form id="formulario" name="formulario" action="/guardar_datos" method="POST">
+                                <!--Cajas de texto para ingresar datos alfanumericos-->
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre"
+                                        placeholder="Escrribir" required>
+                                </div>
 
-                    <div class="mb-3">
-                        <label for="clave" class="form-label">Nombre Completo</label>
-                        <input type="password" class="form-control" id="clave" name="clave" placeholder="Escrribir"
-                            required>
-                    </div>
+                                <!--Ingresar contraseñas no se visualiza lo que se digita, solo puntos por protección-->
+                                <div class="mb-3">
+                                    <label for="clave" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="clave" name="clave"
+                                        placeholder="Escrribir" required>
+                                </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="jorzco@ucm.edu.co"
-                            required>
-                    </div>
+                                <!--Caja de texto, valida que sea un correo valido-->
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="jorzco@ucm.edu.co" required>
+                                </div>
 
-                    <div class="mb-3">
-                        <label for="edad" class="form-label">Edad</label>
-                        <input type="number" class="form-control" id="edad" name="edad" placeholder="Edad" max="120"
-                            min="1" required>
-                    </div>
+                                <!--Caja valida que sea solamente valores numericos entre un maximo y minimo-->
+                                <div class="mb-3">
+                                    <label for="edad" class="form-label">Edad</label>
+                                    <input type="number" class="form-control" id="edad" name="edad" placeholder="Escribir"
+                                        max="120" min="1" required>
+                                </div>
 
-                    <div class="mb-3">
-                        <label for="fecha" class="form-label">Edad</label>
-                        <input type="date" class="form-control" id="fecha" name="fecha" required>
-                    </div>
+                                <!--Dibuja un calendario-->
+                                <div class="mb-3">
+                                    <label for="fecha" class="form-label">Edad</label>
+                                    <input type="date" class="form-control" id="fecha" name="fecha" required>
+                                </div>
 
-                    <div class="mb-3">
-                        <label for="Hobbis" class="form-label">Hobbis</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="futbol"  name="hobbis">
-                            <label class="form-check-label" for="footbol">
-                                Footbool
-                            </label>
+                                <div class="mb-3">
+                                    <!--selecciona de una lista una o varias opciones-->
+                                    <label for="Hobbis" class="form-label">Hobbis</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="futbol" name="hobbis">
+                                        <label class="form-check-label" for="footbol">
+                                            Footbool
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="voleibol" name="hobbis"
+                                            checked>
+                                        <label class="form-check-label" for="voleibol">
+                                            Voleibol
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--Seleccionar una y solamente un opción de la lista corta-->
+                                <!--En el value el valor de la PK - Primary Key en la Base de datos-->
+                                <label for="genero" class="form-label">Género</label>
+                                <div class="mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="genero" value="masculino">
+                                        <label class="form-check-label" for="genero">
+                                            Másculino
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="genero" value="femenino"
+                                            checked>
+                                        <label class="form-check-label" for="genero">
+                                            Femenino
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--Igual que el radio, permite seleccionar una y solamente una opcion de una lista larga-->
+                                <!--En el value el valor de la PK - Primary Key en la Base de datos-->
+                                <div class="mb-3">
+                                    <label for="ciudades" class="form-label">Ciudad de Residencia</label>
+                                    <select id="ciudades" name="ciudades" class="form-select form-select-sm"
+                                        aria-label="Small select example">
+                                        <option selected>Seleccionar</option>
+                                        <option value="manizales">Manizales</option>
+                                        <option value="pereira">Pereira</option>
+                                        <option value="armenia">Armenia</option>
+                                    </select>
+                                </div>
+
+                                <!--Para el manejo de la data, tablas de filas y columnas-->
+                                <br><br>
+                                <h2 class="mb-3">Listado de la Data en la Tabla</h2>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Columna1</td>
+                                            <td>columna2</td>
+                                            <td>columna3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br><br>
+                                <!--Botonera para enviar y resetear el formulario-->
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-success" type="submit">Enviar</button>
+                                    <button class="btn btn-danger" type="reset">Resetear</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="voleibol" name="hobbis"
-                                checked>
-                            <label class="form-check-label" for="voleibol">
-                                Voleibol
-                            </label>
-                        </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="genero" class="form-label">Género</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="genero" id="masculino"
-                                value="masculino">
-                            <label class="form-check-label" for="radioDefault1">
-                                Másculino
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="genero" id="femenino"
-                                value="femenino" checked>
-                            <label class="form-check-label" for="radioDefault2">
-                                Femenino
-                            </label>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-success" type="submit">Enviar</button>
-                        <button class="btn btn-danger" type="reset">Resetear</button>
-                    </div>
-
-                </form>
+                </div>
             </section>
-        </div>
+        </div> <!--fin contenedor section-->
+
         <!-- separamos las secciones del aside, para ubicarlos horizontalmente-->
         <aside>
             <h3>Conéctate con nosotros</h3>

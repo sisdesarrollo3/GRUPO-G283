@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,171 +8,187 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
-    
+
 </head>
-<body>  <!-- background="imagenes/favicon.png" -->
-   <header>
-      <h1>MI PAGINA WEB</h1>
-   </header>
 
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-         <a class="navbar-brand" href="#">Navbar</a>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-               <a class="nav-link active" aria-current="page" href="../index.html">Regresar</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown link
-               </a>
-               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-               </ul>
-            </li>
-            </ul>
-         </div>
-      </div>
-   </nav>
+<body> <!-- background="imagenes/favicon.png" -->
+    <header>
+        <h1>MI PAGINA WEB</h1>
+    </header>
 
-   <main>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Regresar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
         <div class="contenido">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6"> <!-- 4 de 12 columnas ≈ 33% -->
-                        <section id="inicio" style="background: rgb(212, 212, 222);">
-                            <article>
-                                <h1>FORMULARIO</h1>
-                                <p>
-                                    Favor completar el siguiente formulario
-                                </p>
-                            </article>
-                            <!--Inicio del formulario - Finaliza con el botón de Enviar o Guardar-->
-                            <form  name="formularioEjemplo">
-                                <!-- Inicio Campos del formulario aquí -->
-                                <div class="mb-3">  <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
-                                    <label for="nombre" class="form-label">Nombre completo</label>
-                                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
-                                </div>
+                            <section id="inicio" style="background: rgb(212, 212, 222);">
+                                <article>
+                                    <h1>FORMULARIO</h1>
+                                    <p>
+                                        Favor completar el siguiente formulario
+                                    </p>
+                                </article>
+                                <!--Inicio del formulario - Finaliza con el botón de Enviar o Guardar-->
+                                <form name="formularioEjemplo">
+                                    <!-- Inicio Campos del formulario aquí -->
+                                    <div class="mb-3"> <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
+                                        <label for="nombre" class="form-label">Nombre completo</label>
+                                        <input type="text" class="form-control" id="nombre"
+                                            placeholder="Ingresa tu nombre">
+                                    </div>
 
-                                <div class="mb-3">  <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
-                                    <label for="fecha" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fecha" name="fecha">
-                                </div>
+                                    <div class="mb-3"> <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
+                                        <label for="fecha" class="form-label">Fecha de Nacimiento</label>
+                                        <input type="date" class="form-control" id="fecha" name="fecha">
+                                    </div>
 
-                                <div class="mb-3">  <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
-                                    <label for="clave" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="clave" name="clave">
-                                </div>
-                                
-                                <div class="mb-3">  <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
-                                    <div class="mb-3">
-                                        <label for="nivel" class="form-label">Nivel seleccionado: 
-                                            <span id="valor-nivel">50</span>
-                                        </label>
-                                        <input type="range" class="form-range"
-                                                id="nivel" name="nivel"
-                                                min="0" max="100" step="1" value="50"
+                                    <div class="mb-3"> <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
+                                        <label for="clave" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="clave" name="clave">
+                                    </div>
+
+                                    <div class="mb-3"> <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
+                                        <div class="mb-3">
+                                            <label for="nivel" class="form-label">Nivel seleccionado:
+                                                <span id="valor-nivel">50</span>
+                                            </label>
+                                            <input type="range" class="form-range" id="nivel" name="nivel" min="0"
+                                                max="100" step="1" value="50"
                                                 oninput="document.getElementById('valor-nivel').textContent = this.value">
-                                        </div>                                    
-                                </div>
-
-                                <div class="mb-3">  <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
-                                    <label for="salario" class="form-label">Salario Mensual</label>
-                                    <input type="number" class="form-control" id="salario" name="salario" max="5000000" min="0">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="correo" class="form-label">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
-                                </div>
-
-                                <!--Radios una y solamente una opcion de la lista-->
-                                <div class="mb-3">
-                                    <label for="genero" class="form-label">Género</label>
-                                    <div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="genero" id="genero" value="m">
-                                            <label class="form-check-label" for="inlineRadio1">Másculino</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="genero" id="genero" value="f" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Femenino</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="genero" id="genero" value="o" disabled>
-                                            <label class="form-check-label" for="inlineRadio3">No me disido (pendiente)</label>
                                         </div>
                                     </div>
-                                </div>
-                                <!--Combos o cuadros combinados una y solamente una opcion de la lista-->
-                                <div class="mb-3">
-                                    <label for="nacimiento" class="form-label">Ciudad de Nacimiento</label>
-                                    <select class="form-select" aria-label="Default select example" id="hobbis" name="hobbis">
-                                        <option selected>--Seleccionar--</option>
-                                        <option value="1">Manizales</option>
-                                        <option value="2">Bogotá</option>
-                                        <option value="3">Pereira</option>
-                                        <option value="4">Quindio</option>
-                                    </select>
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="hobbis" class="form-label">Hobbis - Selecciona uno o varios</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="f" id="futbool" name="hobbis[]">
-                                        <label class="form-check-label" for="hobbis">
-                                            Futbool
-                                        </label>
+                                    <div class="mb-3"> <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
+                                        <label for="salario" class="form-label">Salario Mensual</label>
+                                        <input type="number" class="form-control" id="salario" name="salario"
+                                            max="5000000" min="0">
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="v" id="voleibol" name="hobbis[]" checked>
-                                        <label class="form-check-label" for="hobbis">
-                                        Voleibol
-                                        </label>
+
+                                    <div class="mb-3">
+                                        <label for="correo" class="form-label">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="correo"
+                                            placeholder="Ingresa tu correo" required>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="v" id="ajedrez" name="hobbis[]" checked>
-                                        <label class="form-check-label" for="hobbis">
-                                        Ajedrez
-                                        </label>
+
+                                    <!--Radios una y solamente una opcion de la lista-->
+                                    <div class="mb-3">
+                                        <label for="genero" class="form-label">Género</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="genero" id="genero"
+                                                    value="m">
+                                                <label class="form-check-label" for="inlineRadio1">Másculino</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="genero" id="genero"
+                                                    value="f" checked>
+                                                <label class="form-check-label" for="inlineRadio2">Femenino</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="genero" id="genero"
+                                                    value="o" disabled>
+                                                <label class="form-check-label" for="inlineRadio3">No me disido
+                                                    (pendiente)</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <!--Combos o cuadros combinados una y solamente una opcion de la lista-->
+                                    <div class="mb-3">
+                                        <label for="nacimiento" class="form-label">Ciudad de Nacimiento</label>
+                                        <select class="form-select" aria-label="Default select example" id="hobbis"
+                                            name="hobbis">
+                                            <option selected>--Seleccionar--</option>
+                                            <option value="1">Manizales</option>
+                                            <option value="2">Bogotá</option>
+                                            <option value="3">Pereira</option>
+                                            <option value="4">Quindio</option>
+                                        </select>
+                                    </div>
 
-                                <div class="mb-3">  <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
-                                    <label for="opinion" class="form-label">Como se ha sentido en la empresa - en que podemos mejorar</label>
-                                    <textarea class="form-control" placeholder="Describe brevemente" id="opinion" name="opinion" cols="100" rows="3"></textarea>
-                                </div>
+                                    <div class="mb-3">
+                                        <label for="hobbis" class="form-label">Hobbis - Selecciona uno o varios</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="f" id="futbool"
+                                                name="hobbis[]">
+                                            <label class="form-check-label" for="hobbis">
+                                                Futbool
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="v" id="voleibol"
+                                                name="hobbis[]" checked>
+                                            <label class="form-check-label" for="hobbis">
+                                                Voleibol
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="v" id="ajedrez"
+                                                name="hobbis[]" checked>
+                                            <label class="form-check-label" for="hobbis">
+                                                Ajedrez
+                                            </label>
+                                        </div>
+                                    </div>
 
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-primary" type="reset">Restablecer</button>
-                                    <button class="btn btn-success" type="sbumit">Enviar</button>
-                                </div>
+                                    <div class="mb-3"> <!-- mb-3 en Bootstrap significa "margin-bottom: 1rem"-->
+                                        <label for="opinion" class="form-label">Como se ha sentido en la empresa - en
+                                            que podemos mejorar</label>
+                                        <textarea class="form-control" placeholder="Describe brevemente" id="opinion"
+                                            name="opinion" cols="100" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="reset">Restablecer</button>
+                                        <button class="btn btn-success" type="sbumit">Enviar</button>
+                                    </div>
 
 
-                            </form>  <!-- Fin de formulario-->
-                        </section>
+                                </form> <!-- Fin de formulario-->
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-   </main>
-   
-   <footer>
-      <p>Copy 2025 - Desarrollado por Jorozco - Todos los derechos reservados</p>
-   </footer>
+    </main>
+
+    <footer>
+        <p>Copy 2025 - Desarrollado por Jorozco - Todos los derechos reservados</p>
+    </footer>
 
 </body>
+
 </html>

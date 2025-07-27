@@ -43,6 +43,14 @@ main {
     flex: 3; 
 }
 
+.container {
+    display: flex;
+}
+
+.mi-row {
+    flex:auto;
+}
+
 section {
     background-color: #fff;  /*color recuadros individuales*/
     padding: 15px;
