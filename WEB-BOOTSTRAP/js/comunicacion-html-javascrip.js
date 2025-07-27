@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let email  = document.getElementById('email').value.trim();  
     const edad = document.getElementById('edad').value; 
 
+
     const hobbiSeleccionados = document.querySelectorAll("input[name='hobbis']:checked");
     //convertit los checkboxes marcados en un array - 
     //map ecorre cada checkbox y extrae su atributo value
@@ -20,12 +21,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const genero = document.querySelector("input[name='genero']:checked").value;
     const ciudades = document.getElementById('ciudades').value;
-
  
     // Aquí va tu lógica (guardar, mostrar, enviar, etc.)
     console.log('Datos capturados:', { nombre, clave, email, edad, listaValores, genero, ciudades });
   
     // Resetear formulario - cuando se requiera limpia todos los campos del formulario del submit
-    form.reset();
+    //form.reset();
+
+    //CAMBIAR VALORES EN EL HTML DESDE JAVA SCRIPT
+    //en los Input-textArea-select con document.getElementById('ID').value =777;
+    //en los radios  document.querySelector('input[name="genero"][value="masculino"]').checked = true;
+    // cambiar en select document.getElementById('ciudades').value ='armenia';
+
   });
  });
