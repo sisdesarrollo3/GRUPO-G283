@@ -111,26 +111,26 @@
                                 <!--Caja valida que sea solamente valores numericos entre un maximo y minimo-->
                                 <div class="mb-3">
                                     <label for="edad" class="form-label">Edad</label>
-                                    <input type="number" class="form-control" id="edad" name="edad" placeholder="Escribir"
-                                        max="120" min="1" required>
+                                    <input type="number" class="form-control" id="edad" name="edad"
+                                        placeholder="Escribir" max="120" min="1" required>
                                 </div>
 
                                 <!--Dibuja un calendario-->
                                 <div class="mb-3">
-                                    <label for="fecha" class="form-label">Edad</label>
+                                    <label for="fecha" class="form-label">Fecha de Nacimiento</label>
                                     <input type="date" class="form-control" id="fecha" name="fecha" required>
                                 </div>
 
+                                <label for="Hobbis" class="form-label">Hobbis</label>
                                 <div class="mb-3">
                                     <!--selecciona de una lista una o varias opciones-->
-                                    <label for="Hobbis" class="form-label">Hobbis</label>
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" value="futbol" name="hobbis">
                                         <label class="form-check-label" for="footbol">
                                             Footbool
                                         </label>
                                     </div>
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" value="voleibol" name="hobbis"
                                             checked>
                                         <label class="form-check-label" for="voleibol">
@@ -174,7 +174,7 @@
                                 <!--Para el manejo de la data, tablas de filas y columnas-->
                                 <br><br>
                                 <h2 class="mb-3">Listado de la Data en la Tabla</h2>
-                                <table class="table">
+                                <table class="table" id='tabla'>
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -193,6 +193,20 @@
                                     </tbody>
                                 </table>
                                 <br><br>
+
+                                <table class="table table-striped" id="tablaUsuarios">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Edad</th>
+                                            <th>Ciudad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Aquí se insertarán las filas dinámicamente -->
+                                    </tbody>
+                                </table>
+
                                 <!--Botonera para enviar y resetear el formulario-->
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-success" type="submit">Enviar</button>
