@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/calculadora.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4"> <!-- Ajustar el ancho aquí -->
+                <div class="card p-4 shadow-lg">
+                    <h5 class="text-center mb-3">Calculadora CASSIO</h5>
+                    <form id="frmCalculadora">
+                        <div class="mb-3">
+                            <label for="txtNumero1" class="form-label">Número 1:</label>
+                            <input type="number" class="form-control" id="txtNumero1" name="txtNumero1" placeholder="Ingrese el primer número" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtNumero2" class="form-label">Número 2:</label>
+                            <input type="number" class="form-control" id="txtNumero2" name="txtNumero2" placeholder="Ingrese el segundo número" required>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary"   onclick="calcular('+')"> + </button>
+                            <button type="button" class="btn btn-secondary" onclick="calcular('-')"> - </button>
+                            <button type="button" class="btn btn-success"   onclick="calcular('*')"> * </button>
+                            <button type="button" class="btn btn-danger"    onclick="calcular('/')"> / </button>
+                        </div>
+                        <div class="mt-3">
+                            <label for="txtResultado" class="form-label">Resultado:</label>
+                            <input type="text" class="form-control" id="txtResultado" readonly>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>

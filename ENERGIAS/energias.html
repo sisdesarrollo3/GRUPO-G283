@@ -1,0 +1,161 @@
+<!-- Definición del tipo de documento -->
+<!DOCTYPE html>
+<!-- Declaración del lenguaje -->
+<html lang="es">
+
+<head>
+    <!-- Codificación de caracteres -->
+    <meta charset="UTF-8">
+    <!-- Título de la pestaña -->
+    <title>Top Países - Energía Renovable</title>
+
+    <!-- Carga Bootstrap 5 desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Carga DataTables con estilo de Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Espaciado general */
+        body {
+            padding: 2rem;
+        }
+
+        /* Tamaño de inputs en encabezado */
+        thead input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor Bootstrap -->
+    <div class="container">
+        <!-- Título de la página -->
+        <h2 class="mb-4">Carga de archivo y filtrado</h2>
+
+        <!-- Input para subir archivo CSV -->
+        <div class="mb-3">
+            <input type="file" id="fileInput" class="form-control">
+        </div>
+
+        <!-- Tabla principal donde se mostrarán los datos -->
+        <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+            <!-- Encabezado con títulos de columnas -->
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Code</th>
+                    <th>Year</th>
+                    <th>Geo Biomass Other (TWh)</th>
+                    <th>Solar Generation (TWh)</th>
+                    <th>Wind Generation (TWh)</th>
+                    <th>Hydro Generation (TWh)</th>
+                </tr>
+                <!-- Segunda fila del thead con inputs para filtrar por columna -->
+                <tr>
+                    <th><input type="text" placeholder="Buscar entidad" /></th>
+                    <th><input type="text" placeholder="Buscar código" /></th>
+                    <th><input type="text" placeholder="Buscar año" /></th>
+                    <th><input type="text" placeholder="Buscar geo" /></th>
+                    <th><input type="text" placeholder="Buscar solar" /></th>
+                    <th><input type="text" placeholder="Buscar viento" /></th>
+                    <th><input type="text" placeholder="Buscar hidro" /></th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla, se llena dinámicamente -->
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Librería PapaParse para procesar CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    
+    <!-- jQuery requerido por DataTables -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- DataTables principal -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
+    <!-- Integración de DataTables con Bootstrap 5 -->
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Script personalizado -->
+    <script>
+        // Variable global para almacenar la instancia de DataTable
+        let dataTable;
+
+        // Evento: cuando el usuario selecciona un archivo
+        document.getElementById('fileInput').addEventListener('change', function (e) {
+            // Obtener el archivo
+            const file = e.target.files[0];
+            // Si no hay archivo, salir
+            if (!file) return;
+
+            // Parsear el CSV usando PapaParse
+            Papa.parse(file, {
+                header: true,             // Primera fila como encabezado
+                skipEmptyLines: true,     // Saltar líneas vacías
+                complete: function (results) {
+                    // Obtener los datos parseados
+                    const data = results.data;
+
+                    // Normalizar y convertir valores numéricos
+                    data.forEach(row => {
+                        // Reemplazar puntos por nada y comas por punto (para decimales europeos)
+                        row["Geo Biomass Other - TWh"] = parseFloat(row["Geo Biomass Other - TWh"]?.replaceAll('.', '').replace(',', '.')) || 0;
+                        row["Solar Generation - TWh"] = parseFloat(row["Solar Generation - TWh"]?.replaceAll('.', '').replace(',', '.')) || 0;
+                        row["Wind Generation - TWh"] = parseFloat(row["Wind Generation - TWh"]?.replaceAll('.', '').replace(',', '.')) || 0;
+                        row["Hydro Generation - TWh"] = parseFloat(row["Hydro Generation - TWh"]?.replaceAll('.', '').replace(',', '.')) || 0;
+                    });
+
+                    // Seleccionar cuerpo de la tabla y limpiar contenido previo
+                    const tableBody = document.querySelector("#dataTable tbody");
+                    tableBody.innerHTML = "";
+
+                    // Crear filas dinámicamente y agregarlas al cuerpo de la tabla
+                    data.forEach(row => {
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
+                            <td>${row["Entity"]}</td>
+                            <td>${row["Code"] || ''}</td>
+                            <td>${row["Year"] || ''}</td>
+                            <td>${row["Geo Biomass Other - TWh"].toFixed(3)}</td>
+                            <td>${row["Solar Generation - TWh"].toFixed(3)}</td>
+                            <td>${row["Wind Generation - TWh"].toFixed(3)}</td>
+                            <td>${row["Hydro Generation - TWh"].toFixed(3)}</td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+
+                    // Si ya existía una instancia previa de DataTable, destruirla
+                    if ($.fn.DataTable.isDataTable('#dataTable')) {
+                        dataTable.destroy();
+                    }
+
+                    // Inicializar DataTable con configuración
+                    dataTable = $('#dataTable').DataTable({
+                        orderCellsTop: true, // Filtros en la parte superior
+                        fixedHeader: true,   // Encabezado fijo
+                        pageLength: 10       // Mostrar 10 filas por página
+                    });
+
+                    // Activar búsqueda individual por columna
+                    $('#dataTable thead tr:eq(1) th').each(function (i) {
+                        $('input', this).on('keyup change', function () {
+                            if (dataTable.column(i).search() !== this.value) {
+                                dataTable
+                                    .column(i)
+                                    .search(this.value)
+                                    .draw(); // Redibujar tabla al filtrar
+                            }
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

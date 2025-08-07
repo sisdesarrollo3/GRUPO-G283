@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Indica que el idioma del contenido es español -->
+
+<head>
+    <meta charset="UTF-8" /> <!-- Codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Hace la página responsive -->
+    <title>Formulario Energías Renovables</title> <!-- Título de la pestaña del navegador -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    
+    <!-- Carga Bootstrap desde CDN -->
+    <style>
+        body {
+            padding: 2rem;
+            /* Espacio interno en todo el body */
+            background-color: #f4f4f4;
+            /* Color de fondo claro */
+        }
+
+        .pregunta {
+            margin-bottom: 2rem;
+            /* Separación entre preguntas */
+        }
+
+        .motivational-message {
+            font-size: 1.2rem;
+            /* Tamaño de fuente más grande */
+            font-weight: bold;
+            /* Texto en negrita */
+            margin-top: 2rem;
+            /* Margen superior para separar el mensaje final */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>MI PAGINA WEB</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MySystem</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Regresar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="contenedor"> <!-- Contenedor principal -->
+        <div class="container">
+            <div class="row justify-content-center mi-row">
+                <div class="col-md-6"> <!-- 4 de 12 columnas ≈ 33% -->
+                    <h3 class="mb-4 text-center">Cuestionario sobre Energías Renovables</h3> <!-- Título del formulario -->
+                    <h4 class="mb-4 text-left">Donde 1 es el más bajo y 5 el más alto</h4>
+                    <form id="frmCuestionario"> <!-- Formulario con ID para JS -->
+                        <div id="contenedorCuestionario"> <!-- Aquí se insertan las preguntas por JavaScript -->
+                            <!-- Las preguntas y radios se generan dinámicamente -->
+                        </div>
+                        <!--Botonera para enviar y resetear el formulario-->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success" type="submit">Enviar</button>
+                            <button class="btn btn-danger" type="reset">Resetear</button>
+                        </div>
+                    </form>
+                    <div id="divResultado" class="motivational-message text-primary"></div>
+                    <!-- Aquí se mostrará el resultado/mensaje -->
+                </div>
+
+    <script src="js/cuestionario.js"></script>
+</body>
+
+</html>

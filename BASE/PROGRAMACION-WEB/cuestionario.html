@@ -1,0 +1,128 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Indica que el idioma del contenido es español -->
+
+<head>
+    <meta charset="UTF-8" /> <!-- Codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Hace la página responsive -->
+    <title>Formulario Energías Renovables</title> <!-- Título de la pestaña del navegador -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Carga Bootstrap desde CDN -->
+    <style>
+        body {
+            padding: 2rem;
+            /* Espacio interno en todo el body */
+            background-color: #f4f4f4;
+            /* Color de fondo claro */
+        }
+
+        .pregunta {
+            margin-bottom: 2rem;
+            /* Separación entre preguntas */
+        }
+
+        .motivational-message {
+            font-size: 1.2rem;
+            /* Tamaño de fuente más grande */
+            font-weight: bold;
+            /* Texto en negrita */
+            margin-top: 2rem;
+            /* Margen superior para separar el mensaje final */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor"> <!-- Contenedor principal -->
+        <div class="container">
+            <div class="row justify-content-center mi-row">
+                <div class="col-md-6"> <!-- 4 de 12 columnas ≈ 33% -->
+                    <h3 class="mb-4 text-center">Cuestionario sobre Energías Renovables</h3> <!-- Título del formulario -->
+                    <h4 class="mb-4 text-left">Donde 1 es el más bajo y 5 el más alto</h4>
+                    <form id="frmCuestionario"> <!-- Formulario con ID para JS -->
+                        <div id="contenedorCuestionario"> <!-- Aquí se insertan las preguntas por JavaScript -->
+                            <!-- Las preguntas y radios se generan dinámicamente -->
+                        </div>
+                        <!--Botonera para enviar y resetear el formulario-->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success" type="submit">Enviar</button>
+                            <button class="btn btn-danger" type="reset">Resetear</button>
+                        </div>
+                    </form>
+                    <div id="divResultado" class="motivational-message text-primary"></div>
+                    <!-- Aquí se mostrará el resultado/mensaje -->
+                </div>
+
+    <script>
+        const cuestionario = { // Diccionario con las preguntas
+            pregunta1: "¿Qué tan importante crees que es el uso de energías renovables?",
+            pregunta2: "¿Qué tanto conoces sobre paneles solares?",
+            pregunta3: "¿Qué tan dispuesto estás a cambiar a energías limpias?",
+            pregunta4: "¿Qué tanto apoyas iniciativas de energías sostenibles?",
+            pregunta5: "¿Qué tan bien informado te sientes sobre el impacto ambiental de energías fósiles?"
+        };
+
+        const respuestas = [1, 2, 3, 4, 5]; // Opciones de respuesta (escala del 1 al 5)
+
+        const contenedor = document.getElementById('contenedorCuestionario'); // Selecciona el contenedor del formulario
+
+        // Cargar preguntas dinámicamente - 
+        // Object.entries(cuestionario) convierte ese objeto en un array de pares clave-valor,
+        Object.entries(cuestionario).forEach(([key, preguntaText], index) => {
+            const divPregunta = document.createElement('div'); // Crea un div para cada pregunta
+            divPregunta.classList.add('pregunta'); // Le aplica la clase CSS "pregunta"
+
+            //Agrega el HTML de la pregunta y radios
+            divPregunta.innerHTML = ` 
+                    <label class="form-label">${index + 1}. ${preguntaText}</label> <!-- Texto de la pregunta -->
+                    <div class="btn-group d-flex justify-content-between" role="group"> <!-- Agrupa los radios con Bootstrap -->
+                    ${respuestas.map(num => ` <!-- Genera dinámicamente los radios -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="${key}" value="${num}" id="${key}_${num}" required> <!-- Opción de respuesta -->
+                            <label class="form-check-label" for="${key}_${num}">${num}</label> <!-- Etiqueta del número -->
+                        </div>
+                    `).join('')}
+                </div>
+            `;            
+            
+            contenedor.appendChild(divPregunta); // Añade la pregunta al contenedor
+        });
+
+        // Manejar envío del formulario
+        document.getElementById('frmCuestionario').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            let total = 0; // Acumulador de las respuestas
+            let count = 0; // Contador de respuestas válidas
+            for (const key in cuestionario) { // Recorre cada pregunta
+                const selected = document.querySelector(`input[name="${key}"]:checked`); // Busca la opción seleccionada
+                if (selected) {
+                    total += parseInt(selected.value); // Suma el valor seleccionado
+                    count++; // Aumenta el contador
+                } else {
+                    alert("Por favor responder todas las preguntas."); // Alerta si falta una respuesta
+                    return; // Detiene la función
+                }
+            }
+
+            const promedio = total / count; // Calcula el promedio de las respuestas
+            const divResultado = document.getElementById('divResultado'); // Selecciona el div para mostrar el mensaje
+            let message = ""; // Variable para el mensaje motivacional
+
+            // Mensaje motivacional según promedio
+            if (promedio >= 4.5) {
+                message = "¡Excelente! ¡Eres un verdadero defensor de las energías renovables!";
+            } else if (promedio >= 3.5) {
+                message = "¡Muy bien! Tienes buena conciencia ambiental.";
+            } else if (promedio >= 2.5) {
+                message = "¡Vas por buen camino! Infórmate más y verás el impacto.";
+            } else {
+                message = "¡Es hora de aprender más sobre energías limpias y su importancia!";
+                color = "text-danger";
+            }
+
+            divResultado.innerHTML = `PROMEDIO OBTENIDO: ${promedio} <br>${message};` // Muestra el resultado final
+        });
+    </script>
+</body>
+
+</html>

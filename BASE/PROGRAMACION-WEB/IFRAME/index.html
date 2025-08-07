@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Mi API</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="loadPage('calculadora.html')">Calculadora</a>
+                </li>
+                <!-- Más elementos de menú aquí -->
+            </ul>
+        </div>
+    </nav>
+     <!-- Botón para cerrar y volver al nav --> 
+    <div class="container mt-12">
+        <iframe id="iframeContent" src="" style="width: 100%; height: 600px; border: none;"></iframe>
+    </div>
+    
+    <script>
+        function loadPage(page) {
+            document.getElementById('iframeContent').src = page;
+        }
+
+        function closeIframe() {
+            document.getElementById('iframeContent').src = '';
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

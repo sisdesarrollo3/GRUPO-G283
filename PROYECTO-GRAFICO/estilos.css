@@ -1,0 +1,25 @@
+body {
+  background-color: #f5f9fd;
+}
+
+h2 {
+  color: #234;
+}
+
+.table th {
+  background-color: #e9ecef;
+}
+
+nav  {
+    display: flex;  /* muestra los elementos en fila*/
+    justify-content: center; /*centra horizontalmente el menu*/
+    list-style: none;  /*quita los puntos de la lista*/
+    background-color: #34495e;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* RESALTAR CON FONDO AL PASAR EL MOUSE POR CADA OPCION DEL MENU NAV*/
+nav a:hover {
+    background-color: #e0e4e3;
+}
